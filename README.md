@@ -260,3 +260,6 @@ if err := d.DialAndSend(m); err != nil {
 // Continue to next Step
 // Response OK Gin
 ```
+
+![Screenshot 2023-07-23 111356](https://github.com/annandltp/Go-Swagger-SendingEmail-Crud/assets/54160771/3b256bee-aa26-4476-98be-6e737764b4ba)
+
