@@ -1,0 +1,105 @@
+definitions:
+  controller.OrderRequest:
+    properties:
+      buyer_address:
+        type: string
+      buyer_email:
+        type: string
+      product_id:
+        type: integer
+    type: object
+  entity.Order:
+    properties:
+      buyerAddress:
+        type: string
+      buyerEmail:
+        type: string
+      id:
+        type: integer
+      orderDate:
+        type: string
+      product:
+        $ref: '#/definitions/entity.Product'
+      productId:
+        type: integer
+    type: object
+  entity.Product:
+    properties:
+      description:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      price:
+        type: integer
+    type: object
+host: localhost:8000
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: Dokomentasi REST API project Mini Ecommerce II
+  title: Trial Class Mini Ecommerce
+  version: "1.0"
+paths:
+  /orders:
+    get:
+      description: Get list of all available Orders
+      parameters:
+      - description: Data Order
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/controller.OrderRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/entity.Order'
+            type: array
+      summary: Get Order
+      tags:
+      - Order
+    post:
+      description: Post list of all available Orders
+      parameters:
+      - description: Data Order
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/controller.OrderRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/entity.Order'
+            type: array
+      summary: Post Order
+      tags:
+      - Order
+  /products:
+    get:
+      description: Get list of all available Products
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/entity.Product'
+            type: array
+      summary: Get Product
+      tags:
+      - Product
+swagger: "2.0"
